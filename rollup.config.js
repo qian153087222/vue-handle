@@ -1,4 +1,8 @@
 import babel from 'rollup-plugin-babel';
+// 压缩代码
+// import { uglify } from 'rollup-plugin-uglify';
+// import livereload from 'rollup-plugin-livereload';
+// import serve from 'rollup-plugin-server';
 
 export default {
     input: './src/index.js',
