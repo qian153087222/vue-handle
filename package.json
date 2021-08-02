@@ -1,0 +1,17 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "handle Vue Orginal",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev":"rollup -c -w"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
+    "rollup": "^2.55.1",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "dependencies": {}
+}
