@@ -4,15 +4,35 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Vue = factory());
 }(this, (function () { 'use strict';
 
+    //判断是否是函数
+    function isFunction(val) {
+      return typeof val === 'function';
+    } //判断是否是对象
+
+    function isObject(val) {
+      return typeof val === 'object' && val !== null;
+    }
+
+    function observe(value) {
+      // 1.如果value不是对象，就不用观测了
+      console.log(isObject(value));
+    }
+
     function initState(vm) {
       const ops = vm.$options;
 
       if (ops.data) {
-        initData();
+        initData(vm);
       }
     }
 
     function initData(vm) {
+      //用户传入数据
+      let data = vm.$options.data; // 如果用户传递的是一个函数 则取函数的返回值作为对象，对象则是对象
+      // 只有根实例data可以是一个对象
+
+      data = isFunction(data) ? data.call(vm) : data;
+      observe(data);
       console.log('初始化数据');
     }
 
@@ -30,8 +50,6 @@
           // 要降数据挂载到页面上
           console.log('页面要挂载');
         }
-
-        console.log(options, 3443);
       };
     }
 
@@ -42,6 +60,11 @@
 
 
     initMixin(Vue); // 导出vue给别人使用
+    // 2.会将用户的选项放在vm.$options上
+    // 3.会对当前属性上搜索有没有data数据 initState
+    // 4.有data判断data是不是一个函数 如果是函数取返回值 initData
+    // 5.observe取观测data中的数据
+    // 如果el需要挂载在页面上
 
     return Vue;
 

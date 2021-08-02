@@ -10,3 +10,11 @@ initMixin(Vue);
 
 // 导出vue给别人使用
 export default Vue;
+
+// 1.new Vue 会调用_init方法进行初始化操作
+// 2.会将用户的选项放在vm.$options上
+// 3.会对当前属性上搜索有没有data数据 initState
+// 4.有data判断data是不是一个函数 如果是函数取返回值 initData
+// 5.observe取观测data中的数据
+
+// 如果el需要挂载在页面上

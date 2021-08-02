@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app"></div>
     <script src="vue.js"></script>
@@ -18,11 +20,14 @@
         // 数据的变化是如何变化的 Object。defineProperty 将对象中原有的属性 更改成带有get和set的一个属性，
         // 这样当修改的时候 会触发set方法 =》更新视图
         new Vue({
-            el:'#app',
-            data:{
-                message:'hello zf'
+            el: '#app',
+            data() {
+                return {
+                    message: 'hello zf'
+                }
             }
         })
     </script>
 </body>
+
 </html>
