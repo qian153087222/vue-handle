@@ -1,8 +1,8 @@
 import babel from 'rollup-plugin-babel';
 // 压缩代码
-// import { uglify } from 'rollup-plugin-uglify';
-// import livereload from 'rollup-plugin-livereload';
-// import serve from 'rollup-plugin-server';
+import { uglify } from 'rollup-plugin-uglify';
+import livereload from 'rollup-plugin-livereload';
+import serve from 'rollup-plugin-serve';
 
 export default {
     input: './src/index.js',
@@ -15,6 +15,17 @@ export default {
     plugins: [
         babel({
             exclude: 'node_modules/**' //glob写法 去掉node_modules下所有文件
+        }),
+        // 压缩代码
+        uglify(),
+        // 热更新 默认监听根文件夹
+        livereload(),
+        // 本地服务器
+        serve({
+            open: true, // 自动打开页面
+            port: 10086,
+            openPage: '/public/index.html', // 打开的页面
+            contentBase: ''
         })
     ]
 }
