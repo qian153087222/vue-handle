@@ -13,7 +13,7 @@
     "rollup": "^2.55.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-server": "^0.7.0",
+    "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-uglify": "^6.0.4"
   },
   "dependencies": {}

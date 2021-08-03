@@ -16,5 +16,7 @@ export default Vue;
 // 3.会对当前属性上搜索有没有data数据 initState
 // 4.有data判断data是不是一个函数 如果是函数取返回值 initData
 // 5.observe取观测data中的数据
+// 6.vm上取值也能取到data中的数据 vm._data = data 这样用户能取到data了 vm._data
+// 7.用户觉得有点麻烦vm.xxx =>vm._data
 
 // 如果el需要挂载在页面上
