@@ -29,11 +29,20 @@
                 // 正常用户修改数组 无非才去数组的变异方法 push pop splice shift unshift reverse sort
                 return {
                     message: 'hello zf',
-                    list:[1,2,3,4,5]
+                    list: [1, 2, 3, 4, 5]
                 }
             }
         });
-        console.log(vm.message)
+        // 什么情况下会更新
+        // vm.message = {a:211}
+        // vm.message.b = 100 //vue2 无法劫持不存在的属性，新增不存在的属性 不会更新视图
+
+        // vm.list[0].name = 'jw' //走对象的修改逻辑
+        // vm.arr[1] = 100 //如果操作的是数组的索引 那么不会更新 不能通过更改数组长度和索引(无法监控的)
+        // 数组的7个方法都会触发
+
+        vm.list.push(3);
+        console.log(vm.list)
     </script>
 </body>
 

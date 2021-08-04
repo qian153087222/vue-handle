@@ -41,3 +41,4 @@ function initData(vm) {
         proxy(vm, key, '_data')
     }
 }
+
